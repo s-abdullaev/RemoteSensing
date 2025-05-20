@@ -3,75 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Фойдаланувчи Профили</title>
+    <title>Фойдаланувчи Профили - Ўсимлик қоплами мониторинги</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Бош саҳифа</a></li>
-                <li><a href="map.html">Асосий Харита</a></li>
-                <li><a href="analysis.html">Таҳлил Панели</a></li>
-                <li><a href="data.html">Маълумотлар</a></li>
-                <li><a href="visualization.html">Визуализация</a></li>
-                <li><a href="reports.html">Ҳисоботлар</a></li>
-                <li><a href="profile.html">Профил</a></li>
-                <li><a href="admin.html">Админ Панели</a></li>
-                <li><a href="login.html">Кириш / Рўйхатдан ўтиш</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1 class="page-title">Фойдаланувчи Профили</h1>
-        <div class="form-container" style="max-width: 600px;">
-            <h2>Шахсий Маълумотлар</h2>
-            <form id="profileForm">
-                <div class="form-group">
-                    <label for="profile-fullname">Ф.И.Ш.:</label>
-                    <input type="text" id="profile-fullname" name="profile-fullname" value="Алимов Валижон" readonly>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="/api/placeholder/40/40" alt="Логотип">
+                <h1>Ўсимлик қоплами мониторинги</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Бош саҳифа</a></li>
+                    <li><a href="map.html">Асосий Харита</a></li>
+                    <li><a href="analysis.html">Таҳлил</a></li>
+                    <li><a href="data.html">Маълумотлар</a></li>
+                    <li><a href="visualization.html">Визуализация</a></li>
+                    <li><a href="reports.html">Ҳисоботлар</a></li>
+                    <li><a href="profile.html" class="active">Профил</a></li>
+                    <li><a href="admin.html">Админ</a></li>
+                </ul>
+            </nav>
+            <div class="user-controls">
+                <a href="login.html" class="btn btn-secondary">Кириш</a>
+                <a href="login.html" class="btn">Рўйхатдан ўтиш</a>
+                <div class="language-selector">
+                    <select>
+                        <option value="uz">Ўзбек</option>
+                        <option value="ru">Русский</option>
+                        <option value="en">English</option>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label for="profile-email">Электрон почта:</label>
-                    <input type="email" id="profile-email" name="profile-email" value="ali@example.com" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="profile-organization">Ташкилот:</label>
-                    <input type="text" id="profile-organization" name="profile-organization" value="Ўрмон Хўжалиги Агентлиги">
-                </div>
-                <div class="form-group">
-                    <label for="profile-phone">Телефон рақам:</label>
-                    <input type="text" id="profile-phone" name="profile-phone" value="+998901234567">
-                </div>
-                <div class="form-group">
-                    <button type="submit">Маълумотларни Сақлаш</button>
-                </div>
-            </form>
+            </div>
         </div>
+    </header>
 
-        <div class="form-container" style="max-width: 600px; margin-top:30px;">
-            <h2>Паролни Ўзгартириш</h2>
-            <form id="changePasswordForm">
-                <div class="form-group">
-                    <label for="current-password">Жорий парол:</label>
-                    <input type="password" id="current-password" name="current-password" required>
+    <main>
+        <div class="container">
+            <div class="main-content-wrapper">
+                <h1 class="page-title">Фойдаланувчи Профили</h1>
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-around;">
+                    <div class="form-container" style="flex: 1; min-width: 300px; max-width:450px;">
+                        <h2>Шахсий Маълумотлар</h2>
+                        <form id="profileForm">
+                            <div class="form-group">
+                                <label for="profile-fullname">Ф.И.Ш.:</label>
+                                <input type="text" id="profile-fullname" name="profile-fullname" value="Алимов Валижон" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-email">Электрон почта:</label>
+                                <input type="email" id="profile-email" name="profile-email" value="ali@example.com" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-organization">Ташкилот:</label>
+                                <input type="text" id="profile-organization" name="profile-organization" value="Ўрмон Хўжалиги Агентлиги">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-phone">Телефон рақам:</label>
+                                <input type="text" id="profile-phone" name="profile-phone" value="+998901234567">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn">Маълумотларни Сақлаш</button>
+                            </div>
+                        </form>
+                    </div>
+            
+                    <div class="form-container" style="flex: 1; min-width: 300px; max-width:450px;">
+                        <h2>Паролни Ўзгартириш</h2>
+                        <form id="changePasswordForm">
+                            <div class="form-group">
+                                <label for="current-password">Жорий парол:</label>
+                                <input type="password" id="current-password" name="current-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-password">Янги парол:</label>
+                                <input type="password" id="new-password" name="new-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-new-password">Янги паролни тасдиқланг:</label>
+                                <input type="password" id="confirm-new-password" name="confirm-new-password" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn">Паролни Ўзгартириш</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="new-password">Янги парол:</label>
-                    <input type="password" id="new-password" name="new-password" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirm-new-password">Янги паролни тасдиқланг:</label>
-                    <input type="password" id="confirm-new-password" name="confirm-new-password" required>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Паролни Ўзгартириш</button>
-                </div>
-            </form>
+            </div>
         </div>
     </main>
+
     <footer>
-        <p>&copy; 2024 Масофавий Зондлаш Тизими</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Тизим ҳақида</h3>
+                    <ul>
+                        <li><a href="#">Имкониятлар</a></li>
+                        <li><a href="profile.html">Профил</a></li>
+                        <li><a href="#">Лойиҳа ҳақида</a></li>
+                        <li><a href="admin.html">Админ Панели</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ресурслар</h3>
+                    <ul>
+                        <li><a href="#">Ҳужжатлар</a></li>
+                        <li><a href="#">Қўлланмалар</a></li>
+                        <li><a href="#">Видеодарслар</a></li>
+                        <li><a href="#">Кўп Бериладиган Саволлар (КБС)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Боғланиш</h3>
+                    <ul>
+                        <li><a href="#">Алоқа формаси</a></li>
+                        <li><a href="#">Техник ёрдам</a></li>
+                        <li><a href="#">Манзил ва телефон</a></li>
+                        <li><a href="#">Ижтимоий тармоқлар</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ҳуқуқий</h3>
+                    <ul>
+                        <li><a href="#">Фойдаланиш шартлари</a></li>
+                        <li><a href="#">Махфийлик сиёсати</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Масофавий Зондлаш Тизими. Барча ҳуқуқлар ҳимояланган.</p>
+            </div>
+        </div>
     </footer>
     <script src="js/main.js"></script>
 </body>

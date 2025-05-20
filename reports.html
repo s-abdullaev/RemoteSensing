@@ -3,103 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ҳисоботлар</title>
+    <title>Ҳисоботлар - Ўсимлик қоплами мониторинги</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Бош саҳифа</a></li>
-                <li><a href="map.html">Асосий Харита</a></li>
-                <li><a href="analysis.html">Таҳлил Панели</a></li>
-                <li><a href="data.html">Маълумотлар</a></li>
-                <li><a href="visualization.html">Визуализация</a></li>
-                <li><a href="reports.html">Ҳисоботлар</a></li>
-                <li><a href="profile.html">Профил</a></li>
-                <li><a href="admin.html">Админ Панели</a></li>
-                <li><a href="login.html">Кириш / Рўйхатдан ўтиш</a></li>
-            </ul>
-        </nav>
+        <div class="container header-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Бош саҳифа</a></li>
+                    <li><a href="map.html">Асосий Харита</a></li>
+                    <li><a href="analysis.html">Таҳлил</a></li>
+                    <li><a href="data.html">Маълумотлар</a></li>
+                    <li><a href="visualization.html">Визуализация</a></li>
+                    <li><a href="reports.html" class="active">Ҳисоботлар</a></li>
+                </ul>
+            </nav>
+            <div class="user-controls">
+                <a href="login.html" class="btn btn-secondary">Кириш</a>
+                <a href="login.html" class="btn">Рўйхатдан ўтиш</a>
+                <div class="language-selector">
+                    <select>
+                        <option value="uz">Ўзбек</option>
+                        <option value="ru">Русский</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+            </div>
+        </div>
     </header>
+
     <main>
-        <h1 class="page-title">Ҳисоботлар Саҳифаси</h1>
-
-        <div class="form-container" style="max-width: 700px;">
-            <h2>Янги Ҳисобот Яратиш</h2>
-            <form id="createReportForm">
-                <div class="form-group">
-                    <label for="report-name">Ҳисобот номи:</label>
-                    <input type="text" id="report-name" name="report-name" required>
+        <div class="container">
+            <div class="main-content-wrapper">
+                <h1 class="page-title">Ҳисоботлар Саҳифаси</h1>
+        
+                <div class="form-container" style="max-width: 700px; margin-bottom: 30px;">
+                    <h2>Янги Ҳисобот Яратиш</h2>
+                    <form id="createReportForm">
+                        <div class="form-group">
+                            <label for="report-name">Ҳисобот номи:</label>
+                            <input type="text" id="report-name" name="report-name" required placeholder="Масалан, Йиллик NDVI таҳлили">
+                        </div>
+                        <div class="form-group">
+                            <label for="report-type">Ҳисобот тури:</label>
+                            <select id="report-type" name="report-type">
+                                <option value="summary">Умумий хулоса</option>
+                                <option value="change_detection">Ўзгаришларни аниқлаш</option>
+                                <option value="land_use_stat">Ердан фойдаланиш статистикаси</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="report-data-source">Маълумот манбаси (таҳлил натижаси):</label>
+                            <select id="report-data-source" name="report-data-source">
+                                <option value="analysis_id_1">NDVI Таҳлили (Тошкент, 2023-10-01)</option>
+                                <option value="analysis_id_2">Сув Сатҳи (Айдаркўл, 2023-09-15)</option>
+                                <!-- Populate with actual analysis results -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="report-format">Ҳисобот формати:</label>
+                            <select id="report-format" name="report-format">
+                                <option value="pdf">PDF</option>
+                                <option value="docx">DOCX</option>
+                                <option value="csv">CSV</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn">Ҳисоботни Яратиш</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="report-type">Ҳисобот тури:</label>
-                    <select id="report-type" name="report-type">
-                        <option value="summary">Умумий хулоса</option>
-                        <option value="change_detection">Ўзгаришларни аниқлаш</option>
-                        <option value="land_use_stat">Ердан фойдаланиш статистикаси</option>
-                    </select>
+        
+                <hr style="margin: 40px 0; border-color: var(--medium-gray);">
+        
+                <h2 style="text-align:center; color: var(--primary-color); margin-bottom:20px; margin-top:30px;">Мавжуд Ҳисоботлар</h2>
+                <div id="reports-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ҳисобот Номи</th>
+                                <th>Тури</th>
+                                <th>Яратилган сана</th>
+                                <th>Формати</th>
+                                <th>Ҳаракатлар</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Тошкент вилояти NDVI ўзгариши</td>
+                                <td>Ўзгаришларни аниқлаш</td>
+                                <td>2023-10-20</td>
+                                <td>PDF</td>
+                                <td>
+                                    <a href="#" class="btn btn-secondary" style="padding:5px 8px; font-size:0.9em;">Кўриш</a> 
+                                    <a href="#" class="btn" style="padding:5px 8px; font-size:0.9em;">Юклаб олиш</a> 
+                                    <a href="#" class="btn" style="padding:5px 8px; font-size:0.9em; background-color:var(--dark-gray);">Ўчириш</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Орол денгизи сув сатҳи мониторинги</td>
+                                <td>Умумий хулоса</td>
+                                <td>2023-10-18</td>
+                                <td>DOCX</td>
+                                <td>
+                                    <a href="#" class="btn btn-secondary" style="padding:5px 8px; font-size:0.9em;">Кўриш</a> 
+                                    <a href="#" class="btn" style="padding:5px 8px; font-size:0.9em;">Юклаб олиш</a> 
+                                    <a href="#" class="btn" style="padding:5px 8px; font-size:0.9em; background-color:var(--dark-gray);">Ўчириш</a>
+                                </td>
+                            </tr>
+                            <!-- More reports here -->
+                        </tbody>
+                    </table>
+                    <p style="text-align:center;"><em>Мавжуд ҳисоботлар бу ерда кўрсатилади.</em></p>
                 </div>
-                <div class="form-group">
-                    <label for="report-data-source">Маълумот манбаси (таҳлил натижаси):</label>
-                    <select id="report-data-source" name="report-data-source">
-                        <option value="analysis_id_1">NDVI Таҳлили (Тошкент, 2023-10-01)</option>
-                        <option value="analysis_id_2">Сув Сатҳи (Айдаркўл, 2023-09-15)</option>
-                        <!-- Populate with actual analysis results -->
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="report-format">Ҳисобот формати:</label>
-                    <select id="report-format" name="report-format">
-                        <option value="pdf">PDF</option>
-                        <option value="docx">DOCX</option>
-                        <option value="csv">CSV</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Ҳисоботни Яратиш</button>
-                </div>
-            </form>
+            </div>
         </div>
-
-        <hr style="margin: 40px 0;">
-
-        <h2>Мавжуд Ҳисоботлар</h2>
-        <div id="reports-list">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Ҳисобот Номи</th>
-                        <th>Тури</th>
-                        <th>Яратилган сана</th>
-                        <th>Формати</th>
-                        <th>Ҳаракатлар</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Тошкент вилояти NDVI ўзгариши</td>
-                        <td>Ўзгаришларни аниқлаш</td>
-                        <td>2023-10-20</td>
-                        <td>PDF</td>
-                        <td><a href="#">Кўриш</a> | <a href="#">Юклаб олиш</a> | <a href="#" style="color:red;">Ўчириш</a></td>
-                    </tr>
-                    <tr>
-                        <td>Орол денгизи сув сатҳи мониторинги</td>
-                        <td>Умумий хулоса</td>
-                        <td>2023-10-18</td>
-                        <td>DOCX</td>
-                        <td><a href="#">Кўриш</a> | <a href="#">Юклаб олиш</a> | <a href="#" style="color:red;">Ўчириш</a></td>
-                    </tr>
-                    <!-- More reports here -->
-                </tbody>
-            </table>
-            <p><em>Мавжуд ҳисоботлар бу ерда кўрсатилади.</em></p>
-        </div>
-
     </main>
+
     <footer>
-        <p>&copy; 2024 Масофавий Зондлаш Тизими</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Тизим ҳақида</h3>
+                    <ul>
+                        <li><a href="#">Имкониятлар</a></li>
+                        <li><a href="profile.html">Профил</a></li>
+                        <li><a href="#">Лойиҳа ҳақида</a></li>
+                        <li><a href="admin.html">Админ Панели</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ресурслар</h3>
+                    <ul>
+                        <li><a href="#">Ҳужжатлар</a></li>
+                        <li><a href="#">Қўлланмалар</a></li>
+                        <li><a href="#">Видеодарслар</a></li>
+                        <li><a href="#">Кўп Бериладиган Саволлар (КБС)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Боғланиш</h3>
+                    <ul>
+                        <li><a href="#">Алоқа формаси</a></li>
+                        <li><a href="#">Техник ёрдам</a></li>
+                        <li><a href="#">Манзил ва телефон</a></li>
+                        <li><a href="#">Ижтимоий тармоқлар</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ҳуқуқий</h3>
+                    <ul>
+                        <li><a href="#">Фойдаланиш шартлари</a></li>
+                        <li><a href="#">Махфийлик сиёсати</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Масофавий Зондлаш Тизими. Барча ҳуқуқлар ҳимояланган.</p>
+            </div>
+        </div>
     </footer>
     <script src="js/main.js"></script>
 </body>

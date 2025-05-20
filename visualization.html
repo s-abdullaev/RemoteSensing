@@ -3,116 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Натижаларни Визуализация Қилиш</title>
+    <title>Натижаларни Визуализация Қилиш - Ўсимлик қоплами мониторинги</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        /* Additional styles for visualization page */
-        .visualization-layout {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .visualization-options {
-            padding: 15px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        #visualization-map-container {
-            height: 400px; 
-            width: 100%;
-            background-color: #e9e9e9;
-            border: 1px solid #ccc;
-            margin-bottom: 20px;
-        }
-        #visualization-chart-container {
-            width: 100%;
-            max-width: 800px; /* Match style.css */
-            margin: 20px auto;
-            background-color: #f9f9f9; /* Match style.css */
-            border: 1px solid #ccc; /* Match style.css */
-            padding: 20px; /* Match style.css */
-            box-sizing: border-box; /* Match style.css */
-            min-height: 300px; /* Adjust as needed */
-        }
-    </style>
+    <!-- Inline styles for visualization page moved to style.css -->
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Бош саҳифа</a></li>
-                <li><a href="map.html">Асосий Харита</a></li>
-                <li><a href="analysis.html">Таҳлил Панели</a></li>
-                <li><a href="data.html">Маълумотлар</a></li>
-                <li><a href="visualization.html">Визуализация</a></li>
-                <li><a href="reports.html">Ҳисоботлар</a></li>
-                <li><a href="profile.html">Профил</a></li>
-                <li><a href="admin.html">Админ Панели</a></li>
-                <li><a href="login.html">Кириш / Рўйхатдан ўтиш</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1 class="page-title">Натижаларни Визуализация Қилиш</h1>
-        <div class="visualization-layout">
-            <div class="visualization-options form-container" style="max-width:none;">
-                <h2>Визуализация Созламалари</h2>
-                <form id="visualizationForm">
-                    <div class="form-group">
-                        <label for="viz-data-select">Визуализация учун маълумотни танланг:</label>
-                        <select id="viz-data-select" name="viz-data-select">
-                            <option value="ndvi_avg_region">Вилоятлар бўйича ўртача NDVI</option>
-                            <option value="water_change_lake_x">X кўлида сув сатҳининг ўзгариши</option>
-                            <option value="land_cover_district_y">Y тумани ер қоплами</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="viz-type">Визуализация тури:</label>
-                        <select id="viz-type" name="viz-type">
-                            <option value="map">Харита</option>
-                            <option value="chart">Диаграмма</option>
-                            <option value="table">Жадвал</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <button type="button" id="generate-visualization-btn">Яратиш</button>
-                    </div>
-                </form>
+        <div class="container header-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Бош саҳифа</a></li>
+                    <li><a href="map.html">Асосий Харита</a></li>
+                    <li><a href="analysis.html">Таҳлил</a></li>
+                    <li><a href="data.html">Маълумотлар</a></li>
+                    <li><a href="visualization.html" class="active">Визуализация</a></li>
+                    <li><a href="reports.html">Ҳисоботлар</a></li>
+                </ul>
+            </nav>
+            <div class="user-controls">
+                <a href="login.html" class="btn btn-secondary">Кириш</a>
+                <a href="login.html" class="btn">Рўйхатдан ўтиш</a>
+                <div class="language-selector">
+                    <select>
+                        <option value="uz">Ўзбек</option>
+                        <option value="ru">Русский</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
             </div>
+        </div>
+    </header>
 
-            <div id="visualization-output">
-                <h2 style="text-align:center;">Визуализация Натижаси</h2>
-                
-                <div id="visualization-map-container" style="display:none;">
-                    <p>Харита юкланмоқда...</p>
+    <main>
+        <div class="container">
+            <div class="main-content-wrapper">
+                <h1 class="page-title">Натижаларни Визуализация Қилиш</h1>
+                <div class="visualization-layout">
+                    <div class="visualization-options form-container" style="max-width:none; margin-bottom: 0;">
+                        <h2>Визуализация Созламалари</h2>
+                        <form id="visualizationForm" style="margin-bottom:0;">
+                            <div style="display:flex; flex-wrap:wrap; gap:20px;">
+                                <div class="form-group" style="flex:1; min-width:250px;">
+                                    <label for="viz-data-select">Маълумотни танланг:</label>
+                                    <select id="viz-data-select" name="viz-data-select">
+                                        <option value="ndvi_avg_region">Вилоятлар бўйича ўртача NDVI</option>
+                                        <option value="water_change_lake_x">X кўлида сув сатҳининг ўзгариши</option>
+                                        <option value="land_cover_district_y">Y тумани ер қоплами</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="flex:1; min-width:200px;">
+                                    <label for="viz-type">Визуализация тури:</label>
+                                    <select id="viz-type" name="viz-type">
+                                        <option value="map">Харита</option>
+                                        <option value="chart">Диаграмма</option>
+                                        <option value="table">Жадвал</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="flex:1; min-width:150px; align-self:flex-end;">
+                                    <button type="button" id="generate-visualization-btn" class="btn" style="width:100%;">Яратиш</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+        
+                    <div id="visualization-output" style="margin-top:30px;">
+                        <h2 style="text-align:center;">Визуализация Натижаси</h2>
+                        
+                        <div id="visualization-map-container" style="display:none;">
+                            <p>Харита юкланмоқда...</p>
+                        </div>
+                        
+                        <div id="visualization-chart-container" style="display:none;"> 
+                            <canvas id="visualizationChart"></canvas>
+                            <p>Диаграмма юкланмоқда...</p>
+                        </div>
+        
+                        <div id="visualization-table-container" style="display:none; margin-top:20px;">
+                            <table>
+                                <thead>
+                                    <tr><th>Параметр</th><th>Қиймат</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Мисол_Параметр_1</td><td>Мисол_Қиймат_1</td></tr>
+                                    <tr><td>Мисол_Параметр_2</td><td>Мисол_Қиймат_2</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p id="viz-placeholder-message" style="text-align:center;">Визуализацияни яратиш учун юқоридаги созламаларни танланг.</p>
+                    </div>
                 </div>
-                
-                <div id="visualization-chart-container" style="display:none;">
-                    <canvas id="visualizationChart"></canvas>
-                    <p>Диаграмма юкланмоқда...</p>
-                </div>
-
-                <div id="visualization-table-container" style="display:none; margin-top:20px;">
-                    <table>
-                        <thead>
-                            <tr><th>Параметр</th><th>Қиймат</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Мисол_Параметр_1</td><td>Мисол_Қиймат_1</td></tr>
-                            <tr><td>Мисол_Параметр_2</td><td>Мисол_Қиймат_2</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p id="viz-placeholder-message" style="text-align:center;">Визуализацияни яратиш учун юқоридаги созламаларни танланг.</p>
             </div>
         </div>
     </main>
+
     <footer>
-        <p>&copy; 2024 Масофавий Зондлаш Тизими</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Тизим ҳақида</h3>
+                    <ul>
+                        <li><a href="#">Имкониятлар</a></li>
+                        <li><a href="profile.html">Профил</a></li>
+                        <li><a href="#">Лойиҳа ҳақида</a></li>
+                        <li><a href="admin.html">Админ Панели</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ресурслар</h3>
+                    <ul>
+                        <li><a href="#">Ҳужжатлар</a></li>
+                        <li><a href="#">Қўлланмалар</a></li>
+                        <li><a href="#">Видеодарслар</a></li>
+                        <li><a href="#">Кўп Бериладиган Саволлар (КБС)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Боғланиш</h3>
+                    <ul>
+                        <li><a href="#">Алоқа формаси</a></li>
+                        <li><a href="#">Техник ёрдам</a></li>
+                        <li><a href="#">Манзил ва телефон</a></li>
+                        <li><a href="#">Ижтимоий тармоқлар</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ҳуқуқий</h3>
+                    <ul>
+                        <li><a href="#">Фойдаланиш шартлари</a></li>
+                        <li><a href="#">Махфийлик сиёсати</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Масофавий Зондлаш Тизими. Барча ҳуқуқлар ҳимояланган.</p>
+            </div>
+        </div>
     </footer>
     <script src="js/main.js"></script>
     <script src="js/charts.js"></script> 

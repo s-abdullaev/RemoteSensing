@@ -3,135 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Администратор Панели</title>
+    <title>Администратор Панели - Ўсимлик қоплами мониторинги</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .admin-sections {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .admin-section {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            flex: 1;
-            min-width: 300px; /* Ensures sections don't get too small */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .admin-section h2 {
-            margin-top: 0;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-        .admin-section ul {
-            list-style: none;
-            padding: 0;
-        }
-        .admin-section ul li {
-            padding: 8px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .admin-section ul li:last-child {
-            border-bottom: none;
-        }
-        .admin-section a {
-            text-decoration: none;
-            color: #007bff;
-        }
-        .admin-section a:hover {
-            text-decoration: underline;
-        }
-        .admin-section .action-btn {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: white;
-            border-radius: 3px;
-            font-size: 0.9em;
-            margin-left: 10px;
-        }
-         .admin-section .action-btn.delete {
-            background-color: #dc3545;
-        }
-    </style>
+    <!-- Inline styles for admin page moved to style.css -->
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Бош саҳифа</a></li>
-                <li><a href="map.html">Асосий Харита</a></li>
-                <li><a href="analysis.html">Таҳлил Панели</a></li>
-                <li><a href="data.html">Маълумотлар</a></li>
-                <li><a href="visualization.html">Визуализация</a></li>
-                <li><a href="reports.html">Ҳисоботлар</a></li>
-                <li><a href="profile.html">Профил</a></li>
-                <li><a href="admin.html">Админ Панели</a></li>
-                <li><a href="login.html">Кириш / Рўйхатдан ўтиш</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1 class="page-title">Администратор Панели</h1>
-        <div class="admin-sections">
-            <section class="admin-section" id="user-management">
-                <h2>Фойдаланувчиларни Бошқариш</h2>
-                <table>
-                    <thead>
-                        <tr><th>ID</th><th>Ф.И.Ш.</th><th>Email</th><th>Роли</th><th>Ҳаракатлар</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td><td>Алимов Валижон</td><td>ali@example.com</td><td>Фойдаланувчи</td>
-                            <td><a href="#editUser1">Таҳрирлаш</a> | <a href="#deleteUser1" style="color:red;">Ўчириш</a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td><td>Каримова Нодира</td><td>nodira@example.com</td><td>Администратор</td>
-                            <td><a href="#editUser2">Таҳрирлаш</a> | <a href="#deleteUser2" style="color:red;">Ўчириш</a></td>
-                        </tr>
-                        <!-- More users -->
-                    </tbody>
-                </table>
-                <button style="margin-top:10px;">Янги фойдаланувчи қўшиш</button>
-            </section>
-
-            <section class="admin-section" id="data-management">
-                <h2>Маълумотлар Базасини Бошқариш</h2>
-                <p>Мавжуд маълумотлар тўпламлари, уларнинг метамаълумотлари ва сақлаш жойларини назорат қилиш.</p>
+        <div class="container header-container">
+            <nav>
                 <ul>
-                    <li><a href="data.html?view=all">Барча маълумотларни кўриш</a></li>
-                    <li><a href="#">Янги маълумот манбасини қўшиш</a></li>
-                    <li><a href="#">Тизим логлари</a></li>
+                    <li><a href="index.html">Бош саҳифа</a></li>
+                    <li><a href="map.html">Асосий Харита</a></li>
+                    <li><a href="analysis.html">Таҳлил</a></li>
+                    <li><a href="data.html">Маълумотлар</a></li>
+                    <li><a href="visualization.html">Визуализация</a></li>
+                    <li><a href="reports.html">Ҳисоботлар</a></li>
+                    <li><a href="profile.html">Профил</a></li>
+                    <li><a href="admin.html" class="active">Админ</a></li>
                 </ul>
-            </section>
+            </nav>
+            <div class="user-controls">
+                <a href="login.html" class="btn btn-secondary">Кириш</a>
+                <a href="login.html" class="btn">Рўйхатдан ўтиш</a>
+                <div class="language-selector">
+                    <select>
+                        <option value="uz">Ўзбек</option>
+                        <option value="ru">Русский</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
 
-            <section class="admin-section" id="system-settings">
-                <h2>Тизим Созламалари</h2>
-                <form id="systemSettingsForm">
-                    <div class="form-group">
-                        <label for="site-name">Сайт Номи:</label>
-                        <input type="text" id="site-name" name="site-name" value="Масофавий Зондлаш Тизими">
-                    </div>
-                    <div class="form-group">
-                        <label for="default-map-layer">Стандарт Харита Қатлами:</label>
-                        <input type="text" id="default-map-layer" name="default-map-layer" value="OpenStreetMap">
-                    </div>
-                     <div class="form-group">
-                        <input type="checkbox" id="maintenance-mode" name="maintenance-mode">
-                        <label for="maintenance-mode">Техник Хизмат Кўрсатиш Режими</label>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit">Созламаларни Сақлаш</button>
-                    </div>
-                </form>
-            </section>
+    <main>
+        <div class="container">
+            <div class="main-content-wrapper">
+                <h1 class="page-title">Администратор Панели</h1>
+                <div class="admin-sections">
+                    <section class="admin-section" id="user-management">
+                        <h2>Фойдаланувчиларни Бошқариш</h2>
+                        <table>
+                            <thead>
+                                <tr><th>ID</th><th>Ф.И.Ш.</th><th>Email</th><th>Роли</th><th>Ҳаракатлар</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td><td>Алимов Валижон</td><td>ali@example.com</td><td>Фойдаланувчи</td>
+                                    <td><a href="#editUser1" class="btn btn-secondary" style="padding:3px 6px; font-size:0.85em;">Таҳрирлаш</a> <a href="#deleteUser1" class="btn" style="padding:3px 6px; font-size:0.85em; background-color:var(--dark-gray);">Ўчириш</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td><td>Каримова Нодира</td><td>nodira@example.com</td><td>Администратор</td>
+                                    <td><a href="#editUser2" class="btn btn-secondary" style="padding:3px 6px; font-size:0.85em;">Таҳрирлаш</a> <a href="#deleteUser2" class="btn" style="padding:3px 6px; font-size:0.85em; background-color:var(--dark-gray);">Ўчириш</a></td>
+                                </tr>
+                                <!-- More users -->
+                            </tbody>
+                        </table>
+                        <button class="btn" style="margin-top:15px;">Янги фойдаланувчи қўшиш</button>
+                    </section>
+        
+                    <section class="admin-section" id="data-management">
+                        <h2>Маълумотлар Базасини Бошқариш</h2>
+                        <p>Мавжуд маълумотлар тўпламлари, уларнинг метамаълумотлари ва сақлаш жойларини назорат қилиш.</p>
+                        <ul>
+                            <li><a href="data.html?view=all">Барча маълумотларни кўриш</a></li>
+                            <li><a href="#">Янги маълумот манбасини қўшиш</a></li>
+                            <li><a href="#">Тизим логларини кўриш</a></li>
+                            <li><a href="#">Захира нусхаларини бошқариш</a></li>
+                        </ul>
+                    </section>
+        
+                    <section class="admin-section" id="system-settings">
+                        <h2>Тизим Созламалари</h2>
+                        <form id="systemSettingsForm">
+                            <div class="form-group">
+                                <label for="site-name">Сайт Номи:</label>
+                                <input type="text" id="site-name" name="site-name" value="Ўсимлик қоплами мониторинги">
+                            </div>
+                            <div class="form-group">
+                                <label for="default-map-layer">Стандарт Харита Қатлами:</label>
+                                <input type="text" id="default-map-layer" name="default-map-layer" value="OpenStreetMap">
+                            </div>
+                             <div class="form-group">
+                                <label style="display:inline-block; margin-right:10px;">Техник Хизмат Кўрсатиш Режими:</label>
+                                <input type="checkbox" id="maintenance-mode" name="maintenance-mode" style="width:auto; vertical-align:middle;">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn">Созламаларни Сақлаш</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
         </div>
     </main>
+
     <footer>
-        <p>&copy; 2024 Масофавий Зондлаш Тизими</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Тизим ҳақида</h3>
+                    <ul>
+                        <li><a href="#">Имкониятлар</a></li>
+                        <li><a href="profile.html">Профил</a></li>
+                        <li><a href="#">Лойиҳа ҳақида</a></li>
+                        <li><a href="admin.html">Админ Панели</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ресурслар</h3>
+                    <ul>
+                        <li><a href="#">Ҳужжатлар</a></li>
+                        <li><a href="#">Қўлланмалар</a></li>
+                        <li><a href="#">Видеодарслар</a></li>
+                        <li><a href="#">Кўп Бериладиган Саволлар (КБС)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Боғланиш</h3>
+                    <ul>
+                        <li><a href="#">Алоқа формаси</a></li>
+                        <li><a href="#">Техник ёрдам</a></li>
+                        <li><a href="#">Манзил ва телефон</a></li>
+                        <li><a href="#">Ижтимоий тармоқлар</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ҳуқуқий</h3>
+                    <ul>
+                        <li><a href="#">Фойдаланиш шартлари</a></li>
+                        <li><a href="#">Махфийлик сиёсати</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Масофавий Зондлаш Тизими. Барча ҳуқуқлар ҳимояланган.</p>
+            </div>
+        </div>
     </footer>
     <script src="js/main.js"></script>
 </body>

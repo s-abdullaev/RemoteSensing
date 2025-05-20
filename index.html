@@ -3,44 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бош саҳифа - Масофавий Зондлаш</title>
+    <title>Ўсимлик қоплами мониторинги - Бош саҳифа</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Бош саҳифа</a></li>
-                <li><a href="map.html">Асосий Харита</a></li>
-                <li><a href="analysis.html">Таҳлил Панели</a></li>
-                <li><a href="data.html">Маълумотлар</a></li>
-                <li><a href="visualization.html">Визуализация</a></li>
-                <li><a href="reports.html">Ҳисоботлар</a></li>
-                <li><a href="profile.html">Профил</a></li>
-                <li><a href="admin.html">Админ Панели</a></li>
-                <li><a href="login.html">Кириш / Рўйхатдан ўтиш</a></li>
-            </ul>
-        </nav>
+        <div class="container header-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Бош саҳифа</a></li>
+                    <li><a href="map.html">Асосий Харита</a></li>
+                    <li><a href="analysis.html">Таҳлил</a></li>
+                    <li><a href="data.html">Маълумотлар</a></li>
+                    <li><a href="visualization.html">Визуализация</a></li>
+                    <li><a href="reports.html">Ҳисоботлар</a></li>
+                </ul>
+            </nav>
+            <div class="user-controls">
+                <a href="login.html" class="btn btn-secondary">Кириш</a>
+                <a href="login.html" class="btn">Рўйхатдан ўтиш</a>
+                <div class="language-selector">
+                    <select>
+                        <option value="uz">Ўзбек</option>
+                        <option value="ru">Русский</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+            </div>
+        </div>
     </header>
-    <main>
-        <section id="hero">
-            <h1>Масофавий зондлаш маълумотларини қайта ишлаш ва таҳлил қилиш тизими</h1>
-            <p>Сизнинг ер юзасини кузатиш бўйича ишончли ҳамкорингиз.</p>
-            <a href="map.html" class="cta-button">Харитани Кўриш</a>
-        </section>
-
-        <section id="features">
-            <h2>Асосий имкониятлар:</h2>
-            <ul>
-                <li>Ер юзасининг юқори сифатли сунъий йўлдош тасвирлари</li>
-                <li>Автоматлаштирилган таҳлил воситалари</li>
-                <li>Маълумотларни юклаш ва экспорт қилиш</li>
-                <li>Интерактив хариталар ва диаграммалар</li>
-            </ul>
-        </section>
-    </main>
+    
+    <section class="hero">
+        <div class="container">
+            <h2>Масофавий зондлаш орқали ўсимлик қопламини мониторинг қилиш</h2>
+            <p>Сунъий йўлдош тасвирлари ва UAV маълумотларидан фойдаланган ҳолда ўсимлик қоплами ўзгаришларини автоматлаштирилган тарзда таҳлил қилиш ва мониторинг қилиш учун замонавий миллий веб-платформаси.</p>
+            <div class="cta-buttons">
+                <a href="map.html" class="btn">Харитага Ўтиш</a>
+                <a href="#" class="btn btn-secondary">Батафсил маълумот</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Асосий имкониятлар</h2>
+                <p>Ўсимлик қоплами мониторинги платформасининг кенг қамровли таҳлил ва визуализация имкониятлари</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📡</div>
+                    <h3>Маълумотларни йиғиш</h3>
+                    <p>Турли сунъий йўлдошлар ва UAV тасвирларини юклаш ва дастлабки қайта ишлаш</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Индекслар ҳисоблаш</h3>
+                    <p>NDVI, EVI, SAVI каби ўсимлик индексларини автоматик ҳисоблаш ва таҳлил қилиш</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔎</div>
+                    <h3>Ўзгаришларни аниқлаш</h3>
+                    <p>Ўсимлик қоплами, ердан фойдаланиш, деградация ўзгаришларини аниқлаш</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Интерактив хариталар</h3>
+                    <p>Натижаларни интерактив ва кўп қатламли хариталар орқали визуализация қилиш</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Тарихий маълумотлар</h3>
+                    <p>Узоқ муддатли трендларни, мавсумий ўзгаришларни ва аномалияларни аниқлаш</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📑</div>
+                    <h3>Автоматик ҳисоботлар</h3>
+                    <p>Мослаштирилган ҳисоботларни хариталар, графиклар ва жадваллар билан яратиш</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Қандай ишлайди</h2>
+                <p>Тизимдан фойдаланиш жараёни содда ва самаралидир</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Рўйхатдан ўтиш</h3>
+                    <p>Тизимда рўйхатдан ўтинг ва керакли хизматларни танланг</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Маълумотларни юклаш</h3>
+                    <p>Ўз маълумотларингизни юкланг ёки мавжудларидан фойдаланинг</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Таҳлил қилиш</h3>
+                    <p>Керакли анализ турларини ва параметрларини танлаб, жараённи бошланг</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Натижаларни кўриш</h3>
+                    <p>Интерактив харита, диаграмма ва ҳисоботлар орқали натижаларни олинг</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <footer>
-        <p>&copy; 2024 Масофавий Зонdлаш Тизими</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Тизим ҳақида</h3>
+                    <ul>
+                        <li><a href="#">Имкониятлар</a></li>
+                        <li><a href="profile.html">Профил</a></li>
+                        <li><a href="#">Лойиҳа ҳақида</a></li>
+                        <li><a href="admin.html">Админ Панели</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Ресурслар</h3>
+                    <ul>
+                        <li><a href="#">Ҳужжатлар</a></li>
+                        <li><a href="#">Қўлланмалар</a></li>
+                        <li><a href="#">Видеодарслар</a></li>
+                        <li><a href="#">Кўп Бериладиган Саволлар (КБС)</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Боғланиш</h3>
+                    <ul>
+                        <li><a href="#">Алоқа формаси</a></li>
+                        <li><a href="#">Техник ёрдам</a></li>
+                        <li><a href="#">Манзил ва телефон</a></li>
+                        <li><a href="#">Ижтимоий тармоқлар</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Ҳуқуқий</h3>
+                    <ul>
+                        <li><a href="#">Фойдаланиш шартлари</a></li>
+                        <li><a href="#">Махфийлик сиёсати</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Масофавий Зондлаш Тизими. Барча ҳуқуқлар ҳимояланган.</p>
+            </div>
+        </div>
     </footer>
     <script src="js/main.js"></script>
 </body>

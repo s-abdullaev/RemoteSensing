@@ -1,180 +1,501 @@
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+/* Global Styles from Wireframe */
+:root {
+    --primary-color: #2a7d2a;
+    --secondary-color: #f0f8f0;
+    --accent-color: #5aa02c;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --medium-gray: #e0e0e0;
+    --dark-gray: #666;
+    --white: #fff;
+    --shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    color: var(--text-color);
+    background-color: var(--light-gray);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+a:hover {
+    color: var(--accent-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
     text-align: center;
 }
 
-header nav ul {
-    padding: 0;
+.btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Updated Header Styles */
+header {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 100;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* Simplified Navigation */
+nav {
+    flex: 1;
+    margin: 0;
+}
+
+nav ul {
+    display: flex;
     list-style: none;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
 }
 
-header nav ul li {
-    display: inline;
-    margin: 0 15px;
+nav ul li a {
+    font-weight: 500;
+    padding: 6px 10px;
+    color: var(--text-color);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+    white-space: nowrap;
 }
 
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+/* Updated User Controls */
+.user-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.user-controls .btn {
+    padding: 6px 12px;
+    font-size: 0.9em;
+}
+
+.language-selector select {
+    padding: 6px 8px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 4px;
+    background-color: var(--white);
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    font-size: 0.9em;
+}
+
+.language-selector select:hover {
+    border-color: var(--primary-color);
+}
+
+/* Main Content Area - Updated Styling */
+main {
+    flex-grow: 1;
+    padding: 30px 0;
+    background-color: var(--light-gray);
+}
+
+.main-content-wrapper {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Hero Section from Wireframe */
+.hero {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1200/400');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 80px 20px; /* Added horizontal padding */
+    text-align: center;
+    border-radius: 8px; /* Optional: to match content wrapper */
+    margin-bottom: 30px; /* Space below hero */
+}
+
+.hero h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.cta-buttons .btn {
+    padding: 12px 24px;
+    font-size: 16px;
+}
+
+/* Features Section from Wireframe */
+.features {
+    padding: 40px 0; /* Adjusted padding */
+    /* background-color: var(--white); Already part of .main-content-wrapper if used inside */
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-heading h2 {
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.section-heading p {
+    font-size: 16px;
+    color: var(--dark-gray);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--white);
+    font-size: 24px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: var(--dark-gray);
+}
+
+/* How It Works from Wireframe */
+.how-it-works {
+    padding: 40px 0; /* Adjusted padding */
+    background-color: var(--secondary-color); /* Standalone section background */
+    margin-top: 30px; /* Space above if it follows another section */
+    border-radius: 8px;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    padding: 0 15px;
+    position: relative;
+    min-width: 200px;
+}
+
+.step:not(:last-child):after {
+    display: none !important;
+}
+
+.step-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2em;
+    color: var(--primary-color);
+    flex: 0 0 40px;
+    height: 100%;
+    margin: 0 0px;
+    user-select: none;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
     font-weight: bold;
+    position: relative;
+    z-index: 1;
 }
 
-header nav ul li a:hover {
+.step h3 {
+    margin-bottom: 10px; /* Adjusted margin */
+    color: var(--primary-color);
+    font-size: 18px; /* Adjusted font size */
+}
+.step p {
+    font-size: 14px;
+    color: var(--dark-gray);
+}
+
+/* Footer from Wireframe */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 40px 0 20px;
+    margin-top: auto; /* Pushes footer to bottom */
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+    color: var(--white); /* Ensure footer headings are white */
+}
+
+.footer-column h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0; /* Reset padding */
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: var(--white);
     text-decoration: underline;
 }
 
-main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 20px auto;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-#hero {
-    background-color: #e2e2e2;
-    padding: 40px 20px;
+.footer-bottom {
     text-align: center;
-    border-radius: 5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-#hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
+/* ------ Integration of Previous CSS for other pages ------ */
 
-#hero p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: #5cb85c;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-}
-
-.cta-button:hover {
-    background-color: #4cae4c;
-}
-
-#features {
-    padding: 20px 0;
-}
-
-#features h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#features ul {
-    list-style: disc;
-    padding-left: 40px;
-}
-
-#features ul li {
-    margin-bottom: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
-    margin-top: 20px;
-}
-
-/* Basic Form Styling */
+/* Basic Form Styling - Integrated with wireframe theme */
 .form-container {
-    background: #fff;
+    background: var(--white);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    max-width: 500px;
-    margin: 40px auto;
+    box-shadow: var(--shadow);
+    max-width: 600px; /* Default max-width, can be overridden */
+    margin: 0 auto 30px auto; /* Centered with bottom margin */
 }
 
-.form-container h1, .form-container h2 {
+.form-container h1, /* For login/register page main titles */
+.form-container h2 { /* For sub-titles within forms */
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    color: var(--primary-color);
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 8px;
+    font-weight: 500; /* Slightly bolder labels */
+    color: var(--dark-gray);
 }
 
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="password"],
+.form-group input[type="number"],
+.form-group input[type="date"],
 .form-group select,
-.form-group textarea {
-    width: calc(100% - 20px);
-    padding: 10px;
-    border: 1px solid #ddd;
+.form-group textarea,
+.form-group input[type="file"]{
+    width: 100%; /* Full width */
+    padding: 10px 12px;
+    border: 1px solid var(--medium-gray);
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 15px;
+    background-color: var(--white);
+}
+
+.form-group input[type="file"] {
+    padding: 5px;
 }
 
 .form-group textarea {
     resize: vertical;
-    min-height: 80px;
+    min-height: 100px;
 }
 
-.form-group button {
-    background-color: #5cb85c;
-    color: white;
-    padding: 10px 15px;
+.form-group button, /* Targets general buttons inside form-group */
+.form-group input[type="submit"] /* Also target submit inputs if used */
+{
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 18px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1em;
     width: 100%;
+    transition: background-color 0.3s;
 }
 
-.form-group button:hover {
-    background-color: #4cae4c;
+.form-group button:hover,
+.form-group input[type="submit"]:hover {
+    background-color: var(--accent-color);
 }
 
-/* Map and Chart Placeholders */
-#map-container {
-    height: 500px;
+/* Map and Chart Placeholders - Integrated */
+#map-container, /* For map.html */
+#visualization-map-container /* For visualization.html */
+{
+    height: 450px; /* Adjusted height */
     width: 100%;
-    background-color: #e9e9e9; /* Placeholder background */
-    border: 1px solid #ccc;
+    background-color: var(--medium-gray); /* Placeholder background */
+    border: 1px solid var(--dark-gray-soft, #ccc);
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    border-radius: 5px;
 }
 
-#chart-container {
+#chart-container, /* For analysis.html */
+#visualization-chart-container /* For visualization.html */
+{
     width: 100%;
     max-width: 800px;
     margin: 20px auto;
-    background-color: #f9f9f9; /* Placeholder background */
-    border: 1px solid #ccc;
+    background-color: var(--white); /* Chart on white bg */
+    border: 1px solid var(--medium-gray);
     padding: 20px;
     box-sizing: border-box;
     display: flex;
@@ -182,26 +503,330 @@ footer {
     justify-content: center;
     text-align: center;
     min-height: 400px;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
 }
 
-.page-title {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/* Table styles */
+/* Table styles - Integrated */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border-radius: 5px; /* Rounded corners for table */
+    overflow: hidden; /* To make border-radius work on th/td */
 }
 
 table th, table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 1px solid var(--medium-gray);
+    padding: 10px 12px; /* Increased padding */
     text-align: left;
+    font-size: 15px;
 }
 
 table th {
-    background-color: #f2f2f2;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+table tr:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
+table tr:hover {
+    background-color: var(--medium-gray);
+}
+
+table a {
+    margin-right: 8px;
+}
+
+/* Updated Responsive Styles */
+@media (max-width: 992px) {
+    .header-container {
+        flex-wrap: wrap;
+    }
+    
+    nav {
+        order: 3;
+        width: 100%;
+        margin: 15px 0 0 0;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .user-controls {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .user-controls {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+    }
+    
+    .user-controls .btn,
+    .language-selector select {
+        width: 100%;
+    }
+    
+    .main-content-wrapper {
+        padding: 20px;
+    }
+    
+    .page-title {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 900px) {
+    .steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    .step-arrow {
+        transform: rotate(90deg);
+        margin: 10px 0;
+    }
+}
+
+/* Specific styles for map.html filter panel */
+.map-layout {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px;
+}
+#map-controls {
+    flex: 0 0 300px; /* Fixed width for controls, adjust as needed */
+    padding: 20px;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--medium-gray);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    height: fit-content; /* Adjust height to content */
+}
+@media (max-width: 992px) {
+    #map-controls {
+        flex: 1 1 100%; /* Full width on smaller screens */
+        max-width: 100%;
+    }
+}
+
+#map-controls h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--medium-gray);
+    padding-bottom: 10px;
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+.control-group {
+    margin-bottom: 15px;
+}
+.control-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--dark-gray);
+}
+.control-group select,
+.control-group input[type="date"],
+.control-group input[type="number"],
+.control-group input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--white);
+}
+.control-group input[type="checkbox"] {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.control-group label[for*="overlay"] { /* More specific selector for checkbox labels */
+    display: inline-block; /* Keep label next to checkbox */
+    font-weight: normal;
+}
+
+#map-container-wrapper {
+    flex-grow: 1;
+    min-width: 300px; /* Ensure map has some width even when controls are wide */
+}
+
+/* Admin page specific styles */
+.admin-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.admin-section {
+    background-color: var(--white);
+    border: 1px solid var(--medium-gray);
+    border-radius: 8px;
+    padding: 25px;
+    flex: 1;
+    min-width: 320px; /* Ensures sections don't get too small */
+    box-shadow: var(--shadow);
+}
+.admin-section h2 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--medium-gray);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 1.5em;
+}
+.admin-section ul {
+    list-style: none;
+    padding: 0;
+}
+.admin-section ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--light-gray);
+}
+.admin-section ul li:last-child {
+    border-bottom: none;
+}
+.admin-section a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+.admin-section a:hover {
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+.admin-section .action-btn { /* This was from wireframe, seems fine */
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 3px;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+ .admin-section .action-btn.delete {
+    background-color: #dc3545; /* Standard delete color */
+}
+
+/* Visualization page specific styles */
+.visualization-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.visualization-options {
+    padding: 20px;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--medium-gray);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+.visualization-options h2 {
+    margin-top:0;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+#visualization-output h2 {
+    text-align:center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Ensure placeholder text is less prominent */
+#map-container p, 
+#visualization-map-container p,
+#chart-container p,
+#visualization-chart-container p,
+#viz-placeholder-message,
+#reports-list p em,
+#search-results p em {
+    color: var(--dark-gray);
+    font-style: italic;
+}
+
+/* Data page: side-by-side search and results */
+.data-search-layout {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+.data-search-layout .form-container {
+    max-width: 350px;
+    min-width: 260px;
+    flex: 0 0 350px;
+    margin-bottom: 0;
+}
+.data-search-layout #search-results {
+    flex: 1 1 0%;
+    margin-top: 0;
+}
+
+@media (max-width: 900px) {
+    .data-search-layout {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .data-search-layout .form-container,
+    .data-search-layout #search-results {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+}
+
+/* Visualization settings row alignment */
+.visualization-options form {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+}
+.visualization-options .form-group {
+    flex: 1 1 200px;
+    min-width: 180px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.visualization-options .form-group label {
+    margin-bottom: 6px;
+}
+.visualization-options button.btn {
+    align-self: stretch;
+    height: 100%;
+    min-width: 140px;
+    font-size: 1.05em;
+    margin-top: 0;
+}
+@media (max-width: 700px) {
+    .visualization-options form {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .visualization-options .form-group,
+    .visualization-options button.btn {
+        min-width: 0;
+        width: 100%;
+    }
 } 
