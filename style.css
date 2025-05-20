@@ -673,9 +673,7 @@ table a {
 
 /* Admin page specific styles */
 .admin-sections {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: block !important;
 }
 .admin-section {
     background-color: var(--white);
@@ -828,5 +826,22 @@ table a {
     .visualization-options button.btn {
         min-width: 0;
         width: 100%;
+    }
+}
+
+/* Admin operations row: two columns below user management */
+.admin-operations-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 32px;
+}
+.admin-operations-row .admin-section {
+    flex: 1 1 0;
+    min-width: 280px;
+}
+@media (max-width: 900px) {
+    .admin-operations-row {
+        flex-direction: column;
+        gap: 20px;
     }
 } 
