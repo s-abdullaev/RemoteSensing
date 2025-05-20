@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Маълумотларни Юклаш ва Қидириш</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Бош саҳифа</a></li>
+                <li><a href="map.html">Асосий Харита</a></li>
+                <li><a href="analysis.html">Таҳлил Панели</a></li>
+                <li><a href="data.html">Маълумотлар</a></li>
+                <li><a href="visualization.html">Визуализация</a></li>
+                <li><a href="reports.html">Ҳисоботлар</a></li>
+                <li><a href="profile.html">Профил</a></li>
+                <li><a href="admin.html">Админ Панели</a></li>
+                <li><a href="login.html">Кириш / Рўйхатдан ўтиш</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="page-title">Маълумотларни Юклаш ва Қидириш</h1>
+
+        <div class="form-container" style="max-width: 700px;">
+            <h2>Маълумот Юклаш</h2>
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label for="data-file">Файлни танланг (GeoTIFF, Shapefile, etc.):</label>
+                    <input type="file" id="data-file" name="data-file" accept=".tif,.tiff,.shp,.zip">
+                </div>
+                <div class="form-group">
+                    <label for="data-description">Тавсиф:</label>
+                    <textarea id="data-description" name="data-description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Юклаш</button>
+                </div>
+            </form>
+        </div>
+
+        <hr style="margin: 40px 0;">
+
+        <h2>Мавжуд Маълумотларни Қидириш</h2>
+        <div class="form-container" style="max-width: 700px;">
+            <form id="searchDataForm">
+                <div class="form-group">
+                    <label for="search-keyword">Калит сўз:</label>
+                    <input type="text" id="search-keyword" name="search-keyword">
+                </div>
+                <div class="form-group">
+                    <label for="search-data-type">Маълумот тури:</label>
+                    <select id="search-data-type" name="search-data-type">
+                        <option value="all">Барчаси</option>
+                        <option value="raster">Растр</option>
+                        <option value="vector">Вектор</option>
+                        <option value="tables">Жадваллар</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Қидириш</button>
+                </div>
+            </form>
+        </div>
+        
+        <div id="search-results" style="margin-top: 20px;">
+            <h3>Қидирув Натижалари:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Номи</th>
+                        <th>Тури</th>
+                        <th>Юкланган сана</th>
+                        <th>Ҳаракатлар</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Тошкент_NDVI_2023.tif</td>
+                        <td>Растр</td>
+                        <td>2023-10-15</td>
+                        <td><a href="#">Кўриш</a> | <a href="#">Юклаб олиш</a></td>
+                    </tr>
+                    <tr>
+                        <td>Айдаркўл_чегараси.shp</td>
+                        <td>Вектор</td>
+                        <td>2023-09-20</td>
+                        <td><a href="#">Кўриш</a> | <a href="#">Юклаб олиш</a></td>
+                    </tr>
+                    <!-- More results here -->
+                </tbody>
+            </table>
+            <p><em>Қидирув натижалари бу ерда кўрсатилади.</em></p>
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 Масофавий Зондлаш Тизими</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html> 

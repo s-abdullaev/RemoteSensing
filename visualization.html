@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Натижаларни Визуализация Қилиш</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Additional styles for visualization page */
+        .visualization-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .visualization-options {
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #visualization-map-container {
+            height: 400px; 
+            width: 100%;
+            background-color: #e9e9e9;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        #visualization-chart-container {
+            width: 100%;
+            max-width: 800px; /* Match style.css */
+            margin: 20px auto;
+            background-color: #f9f9f9; /* Match style.css */
+            border: 1px solid #ccc; /* Match style.css */
+            padding: 20px; /* Match style.css */
+            box-sizing: border-box; /* Match style.css */
+            min-height: 300px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Бош саҳифа</a></li>
+                <li><a href="map.html">Асосий Харита</a></li>
+                <li><a href="analysis.html">Таҳлил Панели</a></li>
+                <li><a href="data.html">Маълумотлар</a></li>
+                <li><a href="visualization.html">Визуализация</a></li>
+                <li><a href="reports.html">Ҳисоботлар</a></li>
+                <li><a href="profile.html">Профил</a></li>
+                <li><a href="admin.html">Админ Панели</a></li>
+                <li><a href="login.html">Кириш / Рўйхатдан ўтиш</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="page-title">Натижаларни Визуализация Қилиш</h1>
+        <div class="visualization-layout">
+            <div class="visualization-options form-container" style="max-width:none;">
+                <h2>Визуализация Созламалари</h2>
+                <form id="visualizationForm">
+                    <div class="form-group">
+                        <label for="viz-data-select">Визуализация учун маълумотни танланг:</label>
+                        <select id="viz-data-select" name="viz-data-select">
+                            <option value="ndvi_avg_region">Вилоятлар бўйича ўртача NDVI</option>
+                            <option value="water_change_lake_x">X кўлида сув сатҳининг ўзгариши</option>
+                            <option value="land_cover_district_y">Y тумани ер қоплами</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="viz-type">Визуализация тури:</label>
+                        <select id="viz-type" name="viz-type">
+                            <option value="map">Харита</option>
+                            <option value="chart">Диаграмма</option>
+                            <option value="table">Жадвал</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="generate-visualization-btn">Яратиш</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="visualization-output">
+                <h2 style="text-align:center;">Визуализация Натижаси</h2>
+                
+                <div id="visualization-map-container" style="display:none;">
+                    <p>Харита юкланмоқда...</p>
+                </div>
+                
+                <div id="visualization-chart-container" style="display:none;">
+                    <canvas id="visualizationChart"></canvas>
+                    <p>Диаграмма юкланмоқда...</p>
+                </div>
+
+                <div id="visualization-table-container" style="display:none; margin-top:20px;">
+                    <table>
+                        <thead>
+                            <tr><th>Параметр</th><th>Қиймат</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Мисол_Параметр_1</td><td>Мисол_Қиймат_1</td></tr>
+                            <tr><td>Мисол_Параметр_2</td><td>Мисол_Қиймат_2</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p id="viz-placeholder-message" style="text-align:center;">Визуализацияни яратиш учун юқоридаги созламаларни танланг.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Масофавий Зондлаш Тизими</p>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/charts.js"></script> 
+    <script src="js/visualization.js"></script>
+</body>
+</html> 

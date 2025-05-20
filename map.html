@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Асосий Харита</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBh_FINaTSPGWjCW9SBJeEQadUEbólAHi3Xo=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        /* Additional styles for map page */
+        .map-layout {
+            display: flex;
+            gap: 20px;
+        }
+        #map-controls {
+            width: 300px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #map-controls h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        .control-group {
+            margin-bottom: 15px;
+        }
+        .control-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .control-group select,
+        .control-group input[type="date"],
+        .control-group input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .control-group input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        #map-container-wrapper {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Бош саҳифа</a></li>
+                <li><a href="map.html">Асосий Харита</a></li>
+                <li><a href="analysis.html">Таҳлил Панели</a></li>
+                <li><a href="data.html">Маълумотлар</a></li>
+                <li><a href="visualization.html">Визуализация</a></li>
+                <li><a href="reports.html">Ҳисоботлар</a></li>
+                <li><a href="profile.html">Профил</a></li>
+                <li><a href="admin.html">Админ Панели</a></li>
+                <li><a href="login.html">Кириш / Рўйхатдан ўтиш</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="page-title">Асосий Харита Интерфейси</h1>
+        <div class="map-layout">
+            <aside id="map-controls">
+                <h3>Фильтрлар ва Қатламлар</h3>
+                
+                <div class="control-group">
+                    <label for="date-filter-start">Сана (бошланиши):</label>
+                    <input type="date" id="date-filter-start" name="date-filter-start">
+                </div>
+                <div class="control-group">
+                    <label for="date-filter-end">Сана (тугаши):</label>
+                    <input type="date" id="date-filter-end" name="date-filter-end">
+                </div>
+
+                <div class="control-group">
+                    <label for="satellite-filter">Сунъий йўлдош:</label>
+                    <select id="satellite-filter" name="satellite-filter">
+                        <option value="all">Барчаси</option>
+                        <option value="landsat8">Landsat 8</option>
+                        <option value="sentinel2">Sentinel-2</option>
+                        <option value="modis">MODIS</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="cloud-cover-filter">Булут қоплами (% гача):</label>
+                    <input type="number" id="cloud-cover-filter" name="cloud-cover-filter" min="0" max="100" value="20">
+                </div>
+
+                <hr>
+                <h3>Қатламлар</h3>
+                <div class="control-group">
+                    <input type="checkbox" id="overlay-admin" name="overlay-admin" value="admin_boundaries">
+                    <label for="overlay-admin">Маъмурий чегаралар</label>
+                </div>
+                <div class="control-group">
+                    <input type="checkbox" id="overlay-vegetation" name="overlay-vegetation" value="ndvi_layer">
+                    <label for="overlay-vegetation">Ўсимлик индекси (NDVI)</label>
+                </div>
+                <div class="control-group">
+                    <input type="checkbox" id="overlay-water" name="overlay-water" value="water_bodies">
+                    <label for="overlay-water">Сув ҳавзалари</label>
+                </div>
+                 <div class="control-group">
+                    <button type="button" id="apply-filters-btn" style="width:100%; padding: 10px; background-color: #5cb85c; color:white; border:none; border-radius:4px; cursor:pointer;">Фильтрларни қўллаш</button>
+                </div>
+            </aside>
+            <div id="map-container-wrapper">
+                <div id="map-container">
+                    <!-- Leaflet map will be initialized here by JavaScript -->
+                    <p>Харита юкланмоқда...</p>
+                </div>
+            </div>
+        </div>
+        <p style="text-align:center; margin-top: 10px;">Бу ерда интерактив харита жойлашади.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Масофавий Зондлаш Тизими</p>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/map.js"></script> 
+</body>
+</html> 
