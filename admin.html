@@ -40,28 +40,29 @@
         <div class="container">
             <div class="main-content-wrapper">
                 <h1 class="page-title">Администратор Панели</h1>
-                <div class="admin-sections">
-                    <section class="admin-section" id="user-management">
-                        <h2>Фойдаланувчиларни Бошқариш</h2>
-                        <table>
-                            <thead>
-                                <tr><th>ID</th><th>Ф.И.Ш.</th><th>Email</th><th>Роли</th><th>Ҳаракатлар</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td><td>Алимов Валижон</td><td>ali@example.com</td><td>Фойдаланувчи</td>
-                                    <td><a href="#editUser1" class="btn btn-secondary" style="padding:3px 6px; font-size:0.85em;">Таҳрирлаш</a> <a href="#deleteUser1" class="btn" style="padding:3px 6px; font-size:0.85em; background-color:var(--dark-gray);">Ўчириш</a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td><td>Каримова Нодира</td><td>nodira@example.com</td><td>Администратор</td>
-                                    <td><a href="#editUser2" class="btn btn-secondary" style="padding:3px 6px; font-size:0.85em;">Таҳрирлаш</a> <a href="#deleteUser2" class="btn" style="padding:3px 6px; font-size:0.85em; background-color:var(--dark-gray);">Ўчириш</a></td>
-                                </tr>
-                                <!-- More users -->
-                            </tbody>
-                        </table>
-                        <button class="btn" style="margin-top:15px;">Янги фойдаланувчи қўшиш</button>
-                    </section>
-        
+                <!-- User management: full width -->
+                <section class="admin-section" id="user-management">
+                    <h2>Фойдаланувчиларни Бошқариш</h2>
+                    <table>
+                        <thead>
+                            <tr><th>ID</th><th>Ф.И.Ш.</th><th>Email</th><th>Роли</th><th>Ҳаракатлар</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td><td>Алимов Валижон</td><td>ali@example.com</td><td>Фойдаланувчи</td>
+                                <td><a href="#editUser1" class="btn btn-secondary" style="padding:3px 6px; font-size:0.85em;">Таҳрирлаш</a> <a href="#deleteUser1" class="btn" style="padding:3px 6px; font-size:0.85em; background-color:var(--dark-gray);">Ўчириш</a></td>
+                            </tr>
+                            <tr>
+                                <td>2</td><td>Каримова Нодира</td><td>nodira@example.com</td><td>Администратор</td>
+                                <td><a href="#editUser2" class="btn btn-secondary" style="padding:3px 6px; font-size:0.85em;">Таҳрирлаш</a> <a href="#deleteUser2" class="btn" style="padding:3px 6px; font-size:0.85em; background-color:var(--dark-gray);">Ўчириш</a></td>
+                            </tr>
+                            <!-- More users -->
+                        </tbody>
+                    </table>
+                    <button class="btn" style="margin-top:15px;">Янги фойдаланувчи қўшиш</button>
+                </section>
+                <!-- Admin operations: two columns -->
+                <div class="admin-operations-row">
                     <section class="admin-section" id="data-management">
                         <h2>Маълумотлар Базасини Бошқариш</h2>
                         <p>Мавжуд маълумотлар тўпламлари, уларнинг метамаълумотлари ва сақлаш жойларини назорат қилиш.</p>
@@ -72,7 +73,6 @@
                             <li><a href="#">Захира нусхаларини бошқариш</a></li>
                         </ul>
                     </section>
-        
                     <section class="admin-section" id="system-settings">
                         <h2>Тизим Созламалари</h2>
                         <form id="systemSettingsForm">
